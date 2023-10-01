@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { rest } from 'msw';
+import { BrowserRouter } from 'react-router-dom';
 import { server } from '../data/mocks/server';
 import { Home } from './Home';
 
@@ -13,7 +14,11 @@ describe('Home page', () => {
   });
 
   test('Deveria retornar um usuário do github ao clicar no botao', async () => {
-    render(<Home />);
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
     const input = screen.getByPlaceholderText(
       'Digite o nome do usuário do github'
     );
@@ -24,8 +29,10 @@ describe('Home page', () => {
     });
     const button = screen.getByRole('button');
     fireEvent.click(button);
-    const users = await screen.findByRole('item');
-    expect(users).toBeInTheDocument();
+    await waitFor(() => {
+      const users = screen.getByRole('item');
+      expect(users).toBeInTheDocument();
+    });
   });
 
   test('Deveria retornar uma mensagem de erro quando não encontrar usuário', async () => {
