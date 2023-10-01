@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
   } 
   /* Defina outros estilos globais aqui */
    body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,196,44,1) 0%, rgba(186,64,123,1) 100%);
   }
