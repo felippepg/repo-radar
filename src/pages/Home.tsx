@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GitHubUser } from '../data/interfaces/GithubUser';
 import { api } from '../data/services/api';
+import { useAddUser } from '../data/state/hooks/useAddUser';
 import { Button } from '../ui/components/data-display/Button';
 import { Container } from '../ui/components/data-display/Container';
 import { Wrapper } from '../ui/components/data-display/Wrapper';
@@ -14,12 +15,16 @@ export const Home = () => {
   const [user, setUser] = useState('');
   const [githubUser, setGithubUser] = useState<GitHubUser | null>();
   const [error, setError] = useState('');
+  const setUserInfo = useAddUser();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setGithubUser(null);
     api
       .get(`/users/${user}`)
-      .then((res) => setGithubUser(res.data))
+      .then((res) => {
+        setGithubUser(res.data);
+        setUserInfo(res.data);
+      })
       .catch(() => setError('Usuario não encontrado'));
 
     setTimeout(() => {

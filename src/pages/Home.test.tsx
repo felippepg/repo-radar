@@ -1,12 +1,17 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { rest } from 'msw';
 import { BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 import { server } from '../data/mocks/server';
 import { Home } from './Home';
 
 describe('Home page', () => {
   test('Deveria retornar um botão de pesquisar', () => {
-    render(<Home />);
+    render(
+      <RecoilRoot>
+        <Home />
+      </RecoilRoot>
+    );
 
     const button = screen.getByRole('button');
 
@@ -16,7 +21,9 @@ describe('Home page', () => {
   test('Deveria retornar um usuário do github ao clicar no botao', async () => {
     render(
       <BrowserRouter>
-        <Home />
+        <RecoilRoot>
+          <Home />
+        </RecoilRoot>
       </BrowserRouter>
     );
     const input = screen.getByPlaceholderText(
