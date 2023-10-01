@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
 export const handlers = [
-  rest.get('url', (req, res, ctx) => {
+  rest.get('https://api.github.com/users/felippepg', (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
