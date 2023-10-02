@@ -77,6 +77,7 @@
 
 import CircularProgress from '@mui/material/CircularProgress';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { IRepository } from '../data/interfaces/Repository';
 import { api } from '../data/services/api';
 import { useGetUserInfo } from '../data/state/hooks/useGetUserInfo';
@@ -91,6 +92,7 @@ export const RepoList = () => {
   const [repos, setRepos] = useState<IRepository[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     api
@@ -172,7 +174,11 @@ export const RepoList = () => {
                 {repo.name}
               </div>
 
-              <DetailsButton>Detalhes</DetailsButton>
+              <DetailsButton
+                onClick={() => navigate(`/repo-details/${repo.name}`)}
+              >
+                Detalhes
+              </DetailsButton>
             </Item>
           ))}
         </ul>
