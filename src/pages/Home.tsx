@@ -48,7 +48,6 @@ export const Home = () => {
           sendo capaz de puxar informações de repositório, seguires, avatar,
           email e bio
         </WelcomeMessage>
-        {/* {githubUser && <ListItem role="item">{githubUser.login}</ListItem>} */}
         {githubUser && (
           <ListItem role="item" to={`/user-details/${githubUser.login}`}>
             {githubUser.login}

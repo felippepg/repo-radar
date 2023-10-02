@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { user } from '../data/mocks/user';
 import { useGetUserInfo } from '../data/state/hooks/useGetUserInfo';
@@ -10,22 +11,36 @@ jest.mock('../data/state/hooks/useGetUserInfo', () => {
   };
 });
 
+jest.mock('react-router-dom', () => {
+  const originalModule = jest.requireActual('react-router-dom');
+  return {
+    ...originalModule,
+    useNavigate: jest.fn(),
+  };
+});
+
 describe('RepoDetails page', () => {
+  beforeAll(() => {
+    const navigateMock = jest.fn();
+    require('react-router-dom').useNavigate.mockReturnValue(navigateMock);
+  });
+
   beforeEach(() => {
     (useGetUserInfo as jest.Mock).mockReturnValue(user);
   });
 
   test('Deveria retornar Nome, descrição, número de estrelas, linguagem', async () => {
     render(
-      <RecoilRoot>
-        <RepoDetails />
-      </RecoilRoot>
+      <BrowserRouter>
+        <RecoilRoot>
+          <RepoDetails />
+        </RecoilRoot>
+      </BrowserRouter>
     );
     const name = 'med-voll';
     const description = 'Projeto de estudo do curso da Alura de Spring Boot';
-    const stargazers_count = 0;
-    const language = 'Java';
-    const link = 'https://github.com/felippepg/med-voll';
+    const stargazers_count = 'Estrelas: 0';
+    const language = 'Linguagem: Java';
     await waitFor(() => {
       const elementName = screen.getByText(name);
       const elementDescription = screen.getByText(description);
