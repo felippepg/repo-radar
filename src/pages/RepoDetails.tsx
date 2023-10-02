@@ -1,11 +1,12 @@
-import { Container } from '@mui/material';
+import { CircularProgress, Container } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { IRepositoryInfo } from '../data/interfaces/RepositoryInfo';
 import { api } from '../data/services/api';
 import { useGetUserInfo } from '../data/state/hooks/useGetUserInfo';
 import { Button } from '../ui/components/data-display/Button';
 import { Wrapper } from '../ui/components/data-display/Wrapper';
+import { ErrorMessage } from '../ui/components/homepage/ErrorMessage';
 import {
   Banner,
   BannerContent,
@@ -18,15 +19,42 @@ export const RepoDetails = () => {
   const githubUserInfo = useGetUserInfo();
   const [repository, setRepository] = useState<IRepositoryInfo>();
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
+
   const { repo } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     api
       .get(`/repos/${githubUserInfo?.login}/${repo}`)
-      .then((res) => setRepository(res.data))
-      .catch(() => setError('Não foi possivel trazer as informações'));
+      .then((res) => {
+        setRepository(res.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError('Não foi possivel trazer as informações');
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return (
+      <Container>
+        <Wrapper>
+          <CircularProgress />
+        </Wrapper>
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container>
+        <Wrapper>
+          <ErrorMessage role="alert">{error}</ErrorMessage>{' '}
+        </Wrapper>
+      </Container>
+    );
+  }
   return (
     <Container>
       <Wrapper>

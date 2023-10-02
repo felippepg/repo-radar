@@ -11,20 +11,7 @@ jest.mock('../data/state/hooks/useGetUserInfo', () => {
   };
 });
 
-jest.mock('react-router-dom', () => {
-  const originalModule = jest.requireActual('react-router-dom');
-  return {
-    ...originalModule,
-    useNavigate: jest.fn(),
-  };
-});
-
 describe('RepoDetails page', () => {
-  beforeAll(() => {
-    const navigateMock = jest.fn();
-    require('react-router-dom').useNavigate.mockReturnValue(navigateMock);
-  });
-
   beforeEach(() => {
     (useGetUserInfo as jest.Mock).mockReturnValue(user);
   });

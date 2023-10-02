@@ -17,6 +17,7 @@ export const Home = () => {
   const [error, setError] = useState('');
   const setUserInfo = useAddUser();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    localStorage.clear();
     event.preventDefault();
     setGithubUser(null);
     api
