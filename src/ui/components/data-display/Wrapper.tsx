@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1em;
+  width: 100vw;
 
   @media screen and (min-width: 900px) and (max-width: 1199px) {
     width: 100vw;

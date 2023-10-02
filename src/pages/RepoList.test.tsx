@@ -48,8 +48,8 @@ describe('Repolist page', () => {
       expect(repo2).toBeInTheDocument();
       expect(repo3).toBeInTheDocument();
 
-      const upButton = within(repo2).getByText('Subir');
-      const downButton = within(repo2).getByText('Descer');
+      const upButton = within(repo2).getByText('expand_more');
+      const downButton = within(repo2).getByText('expand_less');
       fireEvent.click(upButton);
 
       const updatedRepositories = screen.getAllByRole('listitem');
