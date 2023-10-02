@@ -44,4 +44,23 @@ export const handlers = [
       })
     );
   }),
+  rest.get('https://api.github.com/users/felippepg/repos', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          name: 'AluraBooks',
+          full_name: 'felippepg/AluraBooks',
+        },
+        {
+          name: 'auth-tdd',
+          full_name: 'felippepg/auth-tdd',
+        },
+        {
+          name: 'auth-tdd',
+          full_name: 'felippepg/auth-tdd',
+        },
+      ])
+    );
+  }),
 ];

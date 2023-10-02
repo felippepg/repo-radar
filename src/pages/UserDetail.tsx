@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import { useGetUserInfo } from '../data/state/hooks/useGetUserInfo';
 import { Button } from '../ui/components/data-display/Button';
 import { CardItem } from '../ui/components/data-display/CardItem';
@@ -12,6 +13,7 @@ import { Img } from '../ui/components/userDetails/Img';
 
 export const UserDetail = () => {
   const githubUserInfo = useGetUserInfo();
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -34,7 +36,9 @@ export const UserDetail = () => {
             )}
             <CardItem>Bio: {githubUserInfo?.bio}</CardItem>
 
-            <Button>Ver repositórios</Button>
+            <Button onClick={() => navigate('/user-repos')}>
+              Ver repositórios
+            </Button>
           </CardLeft>
         </Card>
       </Wrapper>
