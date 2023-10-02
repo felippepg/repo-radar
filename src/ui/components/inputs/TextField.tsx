@@ -5,4 +5,8 @@ export const TextField = styled.input`
   padding: 1em;
   border: none;
   border-radius: 0.2em;
+
+  @media screen and (min-width: 900px) {
+    font-size: 1.2em;
+  }
 `;

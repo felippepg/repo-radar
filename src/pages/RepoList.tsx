@@ -32,7 +32,7 @@ export const RepoList = () => {
         setError('Usuário não encontrado');
         setLoading(false);
       });
-  }, [githubUser]);
+  }, [githubUser?.login]);
 
   const moveItem = (index: number, direction: 'up' | 'down') => {
     if (!repos) {
@@ -72,7 +72,7 @@ export const RepoList = () => {
   return (
     <Container>
       <Wrapper>
-        <ul role="list" style={{ width: '100%' }}>
+        <ul style={{ width: '100%' }}>
           {repos?.map((repo, index) => (
             <Item key={index}>
               <div>
