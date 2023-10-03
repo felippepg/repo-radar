@@ -6,7 +6,5 @@ export const DetailsButton = styled.button`
   width: fit-content;
   color: white;
   border-radius: 0.2em;
-  /* padding: 0.8em 2em;
-  margin-top: 0.2em; */
   cursor: pointer;
 `;

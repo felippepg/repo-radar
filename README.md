@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# RepoRadar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Ícone de Radar](https://img.icons8.com/ios-filled/50/000000/radar.png)
 
-## Available Scripts
+![Badge de Concluído](https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen)
 
-In the project directory, you can run:
+Bem-vindo ao projeto RepoRadar! Este projeto foi desenvolvido com o propósito de buscar informações de desenvolvedores do GitHub por meio da sua API oficial.
 
-### `npm start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] Buscar por um usuário do GitHub.
+- [x] Visualizar os detalhes do perfil do usuário buscado.
+- [x] Alterar a ordem da lista de repositórios.
+- [x] Ver uma página dedicada com os detalhes de um repositório.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🎲 Rodando o Projeto
 
-### `npm test`
+```bash
+$ git clone https://github.com/felippepg/repo-radar.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd repo-radar
 
-### `npm run build`
+# Instale todas as dependências necessárias para rodar o projeto
+$ yarn OU npm install (dependendo do seu gerenciador de pacotes)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Para iniciar o projeto em modo de desenvolvimento
+$ yarn start OU npm run start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Para rodar os testes automatizados
+$ yarn test OU npm run test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Ícone de Home](https://img.icons8.com/ios-filled/50/000000/home.png)
+Pagina home
 
-### `npm run eject`
+<h1 align="center">
+    <img alt="Tema Escuro" title="dark" src="./public/readme/Home.png" />
+</h1>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Ícone de Perfil](https://img.icons8.com/ios-filled/50/000000/user-male-circle.png)
+Perfil
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h1 align="center">
+    <img alt="Tema Escuro" title="dark" src="./public/readme/Perfil.png" />
+</h1>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Ícone de Lista](https://img.icons8.com/ios-filled/50/000000/list.png)
+Lista
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<h1 align="center">
+    <img alt="Tema Escuro" title="dark" src="./public/readme/Lista.png" />
+</h1>
 
-## Learn More
+![Ícone de Repositório](https://img.icons8.com/ios-filled/50/000000/code-fork.png)
+Repositorio
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h1 align="center">
+    <img alt="Tema Escuro" title="dark" src="./public/readme/Repositorio.png" />
+</h1>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção da Pagina:
+
+[React](https://react.dev/)
+[Styled-Components](https://styled-components.com/)
+[Jest](https://jestjs.io/pt-BR/)
+[React Testing library](https://testing-library.com/)
+
+Feito com ❤️ por [Felippe Pires] 👨‍💻

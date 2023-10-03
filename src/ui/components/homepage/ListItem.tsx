@@ -7,6 +7,13 @@ export const ListItem = styled(Link)`
   width: 100%;
   padding: 0.3em 1em;
   border-radius: 0.2em;
-  text-decoration: none; /* Remover sublinhado padrão do link */
-  color: black; /* Definir a cor do texto */
+  text-decoration: none;
+  color: black;
+  margin-bottom: 0.5em;
+  display: flex;
+  font-size: 1em;
+
+  @media screen and (min-width: 900px) {
+    font-size: 1.5em;
+  }
 `;

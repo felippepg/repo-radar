@@ -7,5 +7,6 @@ export const useAddUser = () => {
 
   return (githubUser: GitHubUser) => {
     setAddUser(githubUser);
+    localStorage.setItem('user', JSON.stringify(githubUser));
   };
 };

@@ -63,4 +63,22 @@ export const handlers = [
       ])
     );
   }),
+  rest.get(
+    'https://api.github.com/repos/felippepg/:repo',
+
+    (req, res, ctx) => {
+      const { repo } = req.params;
+
+      return res(
+        ctx.status(200),
+        ctx.json({
+          name: 'med-voll',
+          html_url: 'https://github.com/felippepg/med-voll',
+          description: 'Projeto de estudo do curso da Alura de Spring Boot',
+          stargazers_count: 0,
+          language: 'Java',
+        })
+      );
+    }
+  ),
 ];
